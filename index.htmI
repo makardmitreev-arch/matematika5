@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ГДЗ Математика 5 класс — Виленкин 2023</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: #333;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 32px 28px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    h1 { font-size: 1.45rem; margin-bottom: 6px; color: #1a1a2e; text-align: center; }
+    .subtitle { text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 24px; line-height: 1.4; }
+    label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem; }
+    input[type="text"] {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 1.15rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      outline: none;
+      text-align: center;
+    }
+    input[type="text"]:focus { border-color: #667eea; }
+    button {
+      width: 100%;
+      margin-top: 16px;
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    .hint {
+      margin-top: 18px;
+      font-size: 0.82rem;
+      color: #777;
+      line-height: 1.45;
+      background: #f8f9fa;
+      padding: 12px 14px;
+      border-radius: 10px;
+    }
+    .links { margin-top: 20px; text-align: center; font-size: 0.85rem; }
+    .links a { color: #667eea; text-decoration: none; margin: 0 8px; }
+    .footer { margin-top: 22px; text-align: center; font-size: 0.75rem; color: #999; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Математика 5 класс</h1>
+    <p class="subtitle">
+      Виленкин, Жохов, Чесноков<br>
+      Просвещение 2023 · Часть 1
+    </p>
 
+    <label for="num">Номер задания</label>
+    <input type="text" id="num" placeholder="например 1.25 или 3.47" autocomplete="off">
+
+    <button onclick="go()">Найти ответ</button>
+
+    <div class="hint">
+      <strong>Как вводить:</strong><br>
+      • Основные упражнения: <code>1.15</code>, <code>2.8</code>, <code>3.120</code><br>
+      • Для «Применяем математику» лучше открыть общий список
+    </div>
+
+    <div class="links">
+      <a href="https://gdz.ru/class-5/matematika/vilenkin-shvacburd/" target="_blank">Весь решебник</a>
+    </div>
+
+    <div class="footer">
+      Сделано для быстрого доступа
+    </div>
+  </div>
+
+  <script>
+    function go() {
+      const raw = document.getElementById('num').value.trim().replace(',', '.');
+      if (!raw) {
+        alert('Введите номер задания');
+        return;
+      }
+      const match = raw.match(/^(\d+)\.(\d+)$/);
+      if (match) {
+        const url = `https://gdz.ru/class-5/matematika/vilenkin-shvacburd/${match[1]}-1-item-${match[2]}/`;
+        window.open(url, '_blank');
+        return;
+      }
+      if (/^\d+$/.test(raw)) {
+        window.open(`https://gdz.ru/class-5/matematika/vilenkin-shvacburd/1-1-item-${raw}/`, '_blank');
+        return;
+      }
+      window.open('https://gdz.ru/class-5/matematika/vilenkin-shvacburd/', '_blank');
+    }
+    document.getElementById('num').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') go();
+    });
+  </script>
+</body>
+</html>
